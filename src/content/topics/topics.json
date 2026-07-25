@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "affirmations-for-anxiety-before-work",
+    "type": "topic",
+    "band": "Friction",
+    "title": "Affirmations for Anxiety Before Work",
+    "metaDescription": "Short, permission-based affirmations for anxiety before a work day \u2014 from Ritula's Friction-band station.",
+    "h1": "Affirmations for anxiety before work",
+    "intro": "That knot in your stomach before you even open your laptop isn't a flaw — it's your body bracing for something before it's happened. These affirmations meet you there first, before asking you to feel any different.",
+    "corpusLines": [
+  "You don't have to feel ready. You just have to begin.",
+  "This tightness is allowed to be here.",
+  "One task. Not the whole day."
+],
+    "howToUse": "Read these before opening your laptop, or the moment you notice your shoulders tighten. Takes under a minute.",
+    "relatedSlugs": [
+      "anxious-to-calm-roadmap",
+      "affirmations-for-racing-thoughts"
+    ],
+    "id": "affirmations-for-anxiety-before-work"
+  },
+  {
+    "slug": "anxious-to-calm-roadmap",
+    "type": "transition",
+    "stationFrom": "Anxious",
+    "stationTo": "Calm",
+    "bandFrom": "Friction",
+    "bandTo": "Bridge",
+    "title": "From Anxious to Calm: A Station Roadmap",
+    "metaDescription": "The Ritula station path from Anxious to Calm \u2014 the exact emotional waypoints and what each one asks of you.",
+    "h1": "From anxious to calm",
+    "intro": "REPLACE: real explanation of the station path between these two points \u2014 this is your actual unique product data, this is the highest-value page type.",
+    "stationSteps": [
+      {
+        "station": "Anxious",
+        "band": "Friction",
+        "note": "REPLACE: what this waypoint is"
+      },
+      {
+        "station": "Steadying",
+        "band": "Bridge",
+        "note": "REPLACE"
+      },
+      {
+        "station": "Calm",
+        "band": "Bridge",
+        "note": "REPLACE"
+      }
+    ],
+    "relatedSlugs": [
+      "affirmations-for-anxiety-before-work"
+    ],
+    "id": "anxious-to-calm-roadmap"
+  },
+  {
+    "slug": "affirmations-for-postpartum-overwhelm",
+    "type": "topic",
+    "band": "Friction",
+    "title": "Affirmations for Postpartum Overwhelm",
+    "metaDescription": "Gentle, permission-based affirmations for postpartum overwhelm \u2014 from Ritula's Friction-band station.",
+    "h1": "Affirmations for postpartum overwhelm",
+    "intro": "REPLACE",
+    "corpusLines": [
+      "REPLACE",
+      "REPLACE",
+      "REPLACE"
+    ],
+    "howToUse": "REPLACE",
+    "relatedSlugs": [],
+    "id": "affirmations-for-postpartum-overwhelm"
+  }
+]

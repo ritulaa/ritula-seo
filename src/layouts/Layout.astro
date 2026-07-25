@@ -1,0 +1,156 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} · Ritula</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="/" class="brand">Ritula</a>
+    <nav>
+      <a href="/topics">Affirmations</a>
+      <a href="/roadmap">Roadmaps</a>
+    </nav>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; {new Date().getFullYear()} Ritula. Built for the moments in between.</p>
+  </footer>
+</body>
+</html>
+
+<style is:global>
+  :root {
+    --bg: #F2F1EE;
+    --surface: #FFFFFF;
+    --ink: #221F1C;
+    --ink-soft: #83786F;
+    --coral: #FF6B4E;
+    --coral-soft: #FAB2A0;
+    --coral-wash: #FCE2DB;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.5;
+  }
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .site-header nav a {
+    margin-left: 18px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 14px;
+  }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 8px 24px 60px;
+  }
+  .site-footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--ink-soft);
+    font-size: 12.5px;
+  }
+  h1 {
+    font-size: 28px;
+    letter-spacing: -0.01em;
+    margin: 12px 0 8px;
+  }
+  .intro {
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    margin-bottom: 24px;
+  }
+  .card {
+    background: var(--surface);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 0 rgba(34,31,28,0.04);
+  }
+  .lines {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .lines li {
+    padding: 12px 0;
+    border-bottom: 1px dashed rgba(131,120,111,0.25);
+    font-size: 16px;
+  }
+  .lines li:last-child { border-bottom: none; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #B7745A;
+    background: var(--coral-wash);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 10px;
+  }
+  .step {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+  }
+  .step .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--coral);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+  .related {
+    margin-top: 32px;
+  }
+  .related a {
+    display: inline-block;
+    margin: 4px 8px 4px 0;
+    padding: 8px 14px;
+    background: var(--surface);
+    border-radius: 999px;
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 13.5px;
+  }
+</style>

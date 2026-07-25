@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const all = await getCollection('topics');
+  const transitions = all.filter((entry) => entry.data.type === 'transition');
+  return transitions.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { title, metaDescription, h1, intro, stationSteps, relatedSlugs } = entry.data;
+
+const all = await getCollection('topics');
+function hrefFor(slug: string) {
+  const target = all.find((e) => e.data.slug === slug);
+  const base = target?.data.type === 'transition' ? '/roadmap/' : '/topics/';
+  return `${base}${slug}`;
+}
+---
+<Layout title={title} description={metaDescription}>
+  <span class="badge">Roadmap</span>
+  <h1>{h1}</h1>
+  <p class="intro">{intro}</p>
+
+  {stationSteps && stationSteps.length > 0 && (
+    <div class="card">
+      {stationSteps.map((step: { station: string; band: string; note: string }) => (
+        <div class="step">
+          <span class="dot"></span>
+          <div>
+            <strong>{step.station}</strong> <span style="color:var(--ink-soft); font-size:12.5px;">· {step.band}</span>
+            <p style="margin:4px 0 0;">{step.note}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  {relatedSlugs && relatedSlugs.length > 0 && (
+    <div class="related">
+      <strong>Related</strong><br />
+      {relatedSlugs.map((slug: string) => <a href={hrefFor(slug)}>{slug.replace(/-/g, ' ')}</a>)}
+    </div>
+  )}
+</Layout>

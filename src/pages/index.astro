@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+
+const all = await getCollection('topics');
+const topicPages = all.filter((e) => e.data.type === 'topic');
+const transitionPages = all.filter((e) => e.data.type === 'transition');
+---
+<Layout title="Ritula" description="Affirmations and emotional roadmaps, built from Ritula's station system.">
+  <h1>Ritula</h1>
+  <p class="intro">Proof-of-pipeline homepage — lists everything currently generated from topics.json.</p>
+
+  <div class="card">
+    <strong>Affirmation topics</strong>
+    <ul class="lines">
+      {topicPages.map((e) => <li><a href={`/topics/${e.data.slug}`}>{e.data.title}</a></li>)}
+    </ul>
+  </div>
+
+  <div class="card">
+    <strong>Roadmaps</strong>
+    <ul class="lines">
+      {transitionPages.map((e) => <li><a href={`/roadmap/${e.data.slug}`}>{e.data.title}</a></li>)}
+    </ul>
+  </div>
+</Layout>
